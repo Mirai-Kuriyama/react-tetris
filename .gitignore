@@ -4,6 +4,14 @@ logs
 *.log
 npm-debug.log*
 .DS_Store
+
+# Build artifacts
+dist
+dev-dist
+test-results
+
+# Vite
+*.local
 # Runtime data
 pids
 *.pid
@@ -34,13 +42,11 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-# Created by .ignore support plugin (hsz.mobi)
+# Editor
 .idea
-.idea/workspace.xml
-.idea/encodings.xml
-.idea/jsLibraryMappings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/react-tetris.iml
-.idea/vcs.xml
-.idea/watcherTasks.xml
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

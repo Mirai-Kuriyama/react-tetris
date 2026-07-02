@@ -1,0 +1,77 @@
+/* 全局共享样式 - 原 containers/index.less 中的全局部分 */
+
+/* 浮动辅助类 */
+.l { float: left; }
+.r { float: right; }
+.clear { clear: both; }
+
+/* 精灵图背景 - 用于 LED 数字、按钮等 */
+.bg {
+  background: url('//img.alicdn.com/tps/TB1qq7kNXXXXXacXFXXXXXXXXXX-400-186.png') no-repeat;
+  overflow: hidden;
+}
+
+/* 矩阵格子样式 - 原 app scope 中的 b 标签 */
+.matrixCell {
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+  border: 2px solid #879372;
+  margin: 0 2px 2px 0;
+  float: left;
+}
+.matrixCell::after {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: #879372;
+  overflow: hidden;
+}
+.matrixCell.c {
+  border-color: #000;
+}
+.matrixCell.c::after {
+  background: #000;
+}
+.matrixCell.d {
+  border-color: #560000;
+}
+.matrixCell.d::after {
+  background: #560000;
+}
+
+/* Decorate 中的 b 标签样式 (装饰用黑色方块) */
+.decB {
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+  border: 2px solid #879372;
+  margin: 0 2px 2px 0;
+  float: left;
+}
+.decB::after {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: #879372;
+  overflow: hidden;
+}
+.decB.c {
+  border-color: #000;
+}
+.decB.c::after {
+  background: #000;
+}
+
+/* Decorate 中的 em 标签样式 (透明装饰块) */
+.decEm {
+  display: block;
+  width: 22px;
+  height: 22px;
+  overflow: hidden;
+  float: left;
+}

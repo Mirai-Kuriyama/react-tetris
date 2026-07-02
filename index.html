@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>俄罗斯方块 Tetris</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#009688" />
+  <meta name="description" content="使用 React 18 + TypeScript + Vite 编写的俄罗斯方块，支持 PWA 离线游玩" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-title" content="Tetris" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="icon" type="image/png" href="icon-192.png" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%; height: 100%;
+      background: #009688;
+      overflow: hidden;
+      font: 20px/1 "HanHei SC","PingHei","PingFang SC","STHeitiSC-Light","Helvetica Neue","Helvetica","Arial",sans-serif;
+      cursor: default;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
+      overscroll-behavior: none;
+      touch-action: none;
+    }
+    #root {
+      width: 100%; height: 100%;
+    }
+    #loading {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: #efcc19;
+      font-size: 14px;
+      text-align: center;
+    }
+    #loading .loader {
+      width: 1em; height: 4em;
+      background: #efcc19;
+      animation: load 1s infinite ease-in-out;
+      animation-delay: -0.16s;
+      position: relative;
+      margin: 4em auto;
+      text-indent: -9999em;
+    }
+    #loading .loader::before,
+    #loading .loader::after {
+      content: '';
+      position: absolute; top: 0;
+      width: 1em; height: 4em;
+      background: #efcc19;
+      animation: load 1s infinite ease-in-out;
+    }
+    #loading .loader::before { left: -1.5em; animation-delay: -0.32s; }
+    #loading .loader::after { left: 1.5em; }
+    @keyframes load {
+      0%, 80%, 100% { box-shadow: 0 0 #efcc19; height: 4em; }
+      40% { box-shadow: 0 -2em #efcc19; height: 5em; }
+    }
+    #loading.hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div id="loading">
+      <div class="loader">加载中</div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>

@@ -1,68 +1,38 @@
 {
   "name": "react-tetris",
-  "version": "1.0.1",
-  "description": "使用React、Redux、Immutable编写「俄罗斯方块」。Use Tetact, Redux, Immutable to coding \"Tetris\".",
+  "version": "2.0.0",
+  "description": "使用 React 18 + TypeScript + Vite 编写的俄罗斯方块，支持 PWA 离线游玩",
+  "type": "module",
+  "packageManager": "pnpm@11.5.3",
   "scripts": {
-    "start": "webpack-dev-server --progress",
-    "build": "rm -rf ./docs/* && webpack --config ./webpack.production.config.js --progress && ls ./docs"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chvin/react-tetris.git"
-  },
-  "keywords": [
-    "Tetris",
-    "React",
-    "Redux",
-    "Immutable",
-    "俄罗斯方块"
-  ],
-  "author": "Chvin",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/chvin/react-tetris/issues"
-  },
-  "homepage": "https://github.com/chvin/react-tetris#readme",
-  "devDependencies": {
-    "autoprefixer": "^6.7.2",
-    "babel-core": "^6.13.2",
-    "babel-loader": "^6.2.4",
-    "babel-plugin-react-transform": "^2.0.2",
-    "babel-preset-es2015": "^6.13.2",
-    "babel-preset-react": "^6.16.0",
-    "copy-webpack-plugin": "^3.0.1",
-    "css-loader": "^0.23.1",
-    "eslint": "^3.3.1",
-    "eslint-config-airbnb": "^10.0.1",
-    "eslint-loader": "^1.6.1",
-    "eslint-plugin-import": "^1.13.0",
-    "eslint-plugin-jsx-a11y": "^2.1.0",
-    "eslint-plugin-react": "^6.1.1",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "file-loader": "^0.9.0",
-    "html-webpack-plugin": "^2.22.0",
-    "json-loader": "^0.5.4",
-    "less": "^2.7.1",
-    "less-loader": "^2.2.3",
-    "open-browser-webpack-plugin": "0.0.3",
-    "postcss": "^5.2.12",
-    "postcss-loader": "^1.2.2",
-    "precss": "^1.4.0",
-    "react-transform-hmr": "^1.0.4",
-    "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7",
-    "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "dev": "vite --host",
+    "build": "tsc && vite build",
+    "preview": "vite preview --host",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "immutable": "^3.8.1",
-    "prop-types": "^15.5.10",
-    "qrcode": "^1.2.0",
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0",
-    "react-redux": "^4.4.5",
-    "redux": "^3.5.2",
-    "redux-immutable": "^3.0.8"
+    "classnames": "^2.5.1",
+    "qrcode": "^1.5.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^4.5.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "@types/node": "^22.0.0",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "@vitest/coverage-v8": "^2.1.0",
+    "jsdom": "^25.0.0",
+    "typescript": "^5.6.0",
+    "vite": "^5.4.0",
+    "vite-plugin-pwa": "^0.20.0",
+    "vitest": "^2.1.0"
   }
 }

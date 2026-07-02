@@ -1,0 +1,93 @@
+/* Decorate 装饰边框 - 匹配原版 decorate/index.less */
+/* 原版 .decorate 无任何样式, 子元素绝对定位相对于 .rect (position:relative) */
+.decorate {
+}
+
+.title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-weight: normal;
+  top: -12px;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 30px;
+}
+
+.topBorder {
+  position: absolute;
+  height: 10px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.topBorder span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  overflow: hidden;
+  background: #000;
+}
+
+.floatLeft { float: left; }
+.floatRight { float: right; }
+.mr { margin-right: 10px; }
+.ml { margin-left: 10px; }
+.clear { clear: both; }
+
+.view {
+  position: absolute;
+  right: -70px;
+  top: 20px;
+  width: 44px;
+}
+
+.viewLeft {
+  right: auto;
+  left: -70px;
+}
+
+/* b 标签: 黑色装饰方块 */
+.view b {
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+  border: 2px solid #879372;
+  margin: 0 2px 2px 0;
+  float: left;
+}
+
+.view b::after {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: #879372;
+  overflow: hidden;
+}
+
+.view b.c {
+  border-color: #000;
+}
+
+.view b.c::after {
+  background: #000;
+}
+
+/* em 标签: 透明装饰块 */
+.view em {
+  display: block;
+  width: 22px;
+  height: 22px;
+  overflow: hidden;
+  float: left;
+}
+
+.view p {
+  height: 22px;
+  clear: both;
+}
