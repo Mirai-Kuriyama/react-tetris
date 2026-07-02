@@ -11,7 +11,7 @@ function MusicToggleInner() {
 
   return (
     <div
-      className={`bg ${styles.music} ${music ? styles.c : ''}`}
+      className={`bg ${styles.music} ${!music ? styles.c : ''}`}
       onClick={() => { if (!lock) setMusic(!music); }}
     />
   );

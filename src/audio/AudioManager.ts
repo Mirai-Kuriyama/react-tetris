@@ -61,6 +61,11 @@ export class AudioManager {
     if (!this.enabled || !this.context || !this.buffer) return;
     if (!this.getMusicOn()) return;
 
+    // Chrome 自动播放策略: AudioContext 可能处于 suspended 状态, 需 resume
+    if (this.context.state === 'suspended') {
+      this.context.resume();
+    }
+
     const source = this.context.createBufferSource();
     source.buffer = this.buffer;
     source.connect(this.context.destination);

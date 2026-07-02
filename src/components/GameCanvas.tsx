@@ -33,7 +33,7 @@ function GameCanvasInner() {
     renderer.render(matrix, cur);
   }, [matrix, cur, reset, getRenderer]);
 
-  // 消除动画
+  // 消除动画: 3轮闪烁 (空↔重叠色), 结束后实际清除行并恢复游戏
   useEffect(() => {
     if (clearingLines.length === 0) return;
     if (reset) return;
@@ -43,11 +43,15 @@ function GameCanvasInner() {
     let count = 0;
     const timer = setInterval(() => {
       count++;
-      renderer.renderClearAnimation(matrix, clearingLines, count);
-      if (count >= 10) {
+      // 交替闪烁: 奇数帧=空(0), 偶数帧=重叠色(2), 匹配原版 clearAnimate
+      const animateColor = count % 2 === 1 ? 0 : 2;
+      renderer.renderClearAnimation(matrix, clearingLines, animateColor);
+      if (count >= 6) {
         clearInterval(timer);
+        // 动画结束后实际消除行, 生成新方块, 恢复游戏循环
+        getGameController().clearLines(matrix, clearingLines);
       }
-    }, 40);
+    }, 100);
     return () => clearInterval(timer);
   }, [clearingLines, matrix, reset, getRenderer]);
 
