@@ -91,8 +91,9 @@ export function getStartMatrix(startLines: number): MatrixData {
 /** 消除指定行, 返回新矩阵 */
 export function clearMatrixLines(matrix: MatrixData, lines: number[]): MatrixData {
   const result = matrix.map((row) => [...row]);
-  // 从大到小排序, 避免删除时索引偏移
-  const sorted = [...lines].sort((a, b) => b - a);
+  // 从小到大处理: 每次删除一行并在顶部插入空行,
+  // 后续行号因 unshift 整体下移, 但因为先删了更小的行号, 后面的行号不受影响
+  const sorted = [...lines].sort((a, b) => a - b);
   for (const line of sorted) {
     result.splice(line, 1);
     result.unshift([...blankLine]);
